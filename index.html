@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <title>Secret santa</title>
+</head>
+<body>
+  <div class="myOnlyDiv">
+  <h1>Sectet Santa bitch</h1>
+  <span class="santaimg" ><img src="santa.png" alt=""></span>
+  <h3>выбери свое имя из списка, нажми на кнопку и узнай, кто получит от тебя подарок </h3>
+  <span class="giftimg"><img src="gift.png" alt=""><img src="gift.png" alt=""><img src="gift.png" alt=""></span>
+  <form id="allform" onsubmit="return false;">
+ <select id="myform" name="list1" required autofocus>
+   <option value="holder" disabled >----выбери имя----</option>
+
+ </select>
+ <br><input id="getAGift" class="myButton" type="submit" value="Узнать!">
+</form>
+
+</div>
+<script src="jquery-3.3.1.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
