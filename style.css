@@ -23,6 +23,18 @@ h3 {
 
 }
 
+input {
+  text-transform: capitalize;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  border: 1px white solid;
+  border-radius: 50%;
+  padding: 3px;
+}
+
 .santaimg > img {
   width: 95px;
   pointer-events: none;
@@ -44,6 +56,26 @@ h3 {
   padding: 35px;
 }
 
+.line {
+  position: relative;
+  margin-bottom: 7px;
+}
+
+.add_field {
+  position: absolute;
+  left: 25px;
+}
+
+
+.del_field {
+  position: absolute;
+  right: 25px;
+}
+
+.hidden {
+  display: none;
+}
+
 #myform {
   width: 150px;
   padding: 7px;
@@ -52,7 +84,7 @@ h3 {
   outline: none;
 }
 
-#getAGift {
+.myButton {
   width: 110px;
   padding: 10px;
   border-radius: 50px;
