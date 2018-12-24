@@ -18,6 +18,9 @@ input {
 	text-transform: capitalize;
 	width: 250px;
 }
+option {
+	text-transform: capitalize;
+}
 a {
 	color: white;
 	text-decoration: none;
