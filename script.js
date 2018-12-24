@@ -5,16 +5,22 @@ $("#getAGift").attr('disabled', 'disabled'); // Кнопка по дефолту
 $("#myform").change(function() { //После выбора какой-то опции кнопка загорается
 	$("#getAGift").removeAttr('disabled', 'disabled');
 });
-// С этой функцией можно понять, что рандом выдал тебе как цель подарка тебя самого, или твою пару, т.к. вы в одном массиве.
-function foobar(inputArray, searchValue) {
-	for (var i = 0, L = inputArray.length; i < L; i++) {
-		var j = inputArray[i].indexOf(searchValue);
-		if (j >= 0) {
-			return [i];
-		};
-	};
-	return null;
+Array.prototype.shuffle = function(b) {
+	var i = this.length,
+		j, t;
+	while (i) {
+		j = Math.floor((i--) * Math.random());
+		t = b && typeof this[i].shuffle !== 'undefined' ? this[i].shuffle() : this[i];
+		this[i] = this[j];
+		this[j] = t;
+	}
+	return this;
 };
+var myNumb = 0;
+
+function capitalize(string) {
+	return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+}
 $(document).on('click', '.add_field', function() {
 	$('.add_field').addClass('hidden');
 	$('.del_field').addClass('hidden');
@@ -25,43 +31,47 @@ $(document).on('click', '.del_field', function() {
 	$('.line:last').find("a").removeClass('hidden');
 })
 $('#sendNames').click(function namesFromInput() {
-	var presents = $('.input_info').find('input').map(function() {
+	var presentsArray = $('.input_info').find('input').map(function() {
 		return this.value; // $(this).val()
 	}).get();
-	var result = JSON.parse(JSON.stringify(presents))
+	var namesArray = JSON.parse(JSON.stringify(presentsArray))
 	$('.first_step').addClass('hidden');
 	$('.second_step').removeClass('hidden');
-	console.log(presents);
-	console.log(result);
-	for (var i = 0; i < result.length; i++) {
-		$("#myform").append('<option value="' + i + '">' + result[i] + '</option>');
+	// console.log(presentsArray);
+	// console.log(namesArray);
+	for (var i = 0; i < namesArray.length; i++) {
+		$("#myform").append('<option value="' + i + '">' + namesArray[i] + '</option>');
 	};
+	perebor();
+
+	function perebor() {
+		for (var i = 0; i < namesArray.length; i++) {
+			if (namesArray[i] == presentsArray[i]) {} else {
+				myNumb++;
+			}
+		}
+		if (myNumb == namesArray.length) {
+			// console.log("_____");
+			// console.log("Е БОООЙ, У ВСЕХ РАНДОМ)))");
+			// console.log("Names : " + namesArray);
+			// console.log("Presents : " + presentsArray);
+		} else {
+			// console.log("Не варик ");
+			// console.log("Names : " + namesArray);
+			// console.log("Presents : " + presentsArray);
+			myNumb = 0;
+			presentsArray.shuffle();
+			perebor();
+		}
+	}
 	//Все, что происходит по клику на отправить
 	$("#allform").submit(function onClickSubmit() {
 		var selectedPerson = $("#myform option:selected").text(); // Узнает строчкой, что за человек выбран в качестве отправителя подарка.
-		var findPerson = foobar(presents, selectedPerson); // Ищет индекс внутреннего массива у этого человека.
-		var findPersonString = JSON.stringify(findPerson); // Преобразует в строку (нунжо для функции noGift)
-		var rand = Math.floor(Math.random() * presents.length); // Находит рандомный индекс человека, которому дарить подарок
-		var randomPresent = presents[rand]; // Выводит человека по индексу в массиве
-		var randomPresentNumber = foobar(presents, randomPresent); // Отправляет инфу в функцию по проверке, функция вернет, в каком массиве человек, которому дарят
-		var randomPresentNumberString = JSON.stringify(randomPresentNumber); // Преобразует в строку (нунжо для функции noGift)
-		console.log("Кто дарит: " + selectedPerson); // + " Номер в цикле: " + findPersonString + " " + typeof(findPersonString));
-		console.log("Кому дарит: " + randomPresent); // + " Номер в цикле: " + randomPresentNumberString + " " + typeof(randomPresentNumberString));
-		console.log("_____"); // Тупо разделитель)
-		// Проверяет, кому ты даришь. Если цель из твоего массива, то выдает ошибку. Если цель другой человек - делает твое имя не активным и перебрасывает на опцию "Выбрать имя"
-		function noGift(a, b) {
-			if (a == b) {
-				onClickSubmit(); // перезапуск функции
-				return ("Функция была перезапущена")
-			} else if (a != b) {
-				$("#myform option:selected").attr('disabled', 'disabled'); // Делает твое имя не активным, ты уже получил цель.
-				$("#getAGift").attr('disabled', 'disabled'); // Делает не активной кнопку, ты уже получил цель.
-				presents.splice(rand, 1); // Удаляет из массива тех, кому дарить имя этого человека
-				alert(selectedPerson + ", твой подарок отправится к " + randomPresent);
-				return presents
-			}
-		};
-		console.log(noGift(findPersonString, randomPresentNumberString));
-		return false
+		var selectedPersonNumber = $("#myform option:selected").val();
+		var selectedPersonCap = capitalize(selectedPerson)
+		var getsGift = capitalize(presentsArray[selectedPersonNumber])
+		alert(selectedPersonCap + ", твой подарок получит " + getsGift + " ;)")
+		$("#myform option:selected").attr('disabled', 'disabled'); // Делает твое имя не активным, ты уже получил цель.
+		$("#getAGift").attr('disabled', 'disabled'); // Делает не активной кнопку, ты уже получил цель.
 	})
 }) // КОНЕЦ ФУНКЦИИ namesFromInput
