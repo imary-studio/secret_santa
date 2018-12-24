@@ -1,44 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="style.css">
-  <link href="favicon.ico" rel="icon" type="image/x-icon" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-  <title>Secret santa</title>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, user-scalable=no" name="viewport">
+	<meta content="ie=edge" http-equiv="X-UA-Compatible">
+	<link href="style.css" rel="stylesheet">
+	<link href="favicon.ico" rel="icon" type="image/x-icon">
+	<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet">
+	<title>Secret santa</title>
 </head>
 <body>
-  <div class="myOnlyDiv">
-  <h1>Secret Santa, bitch</h1>
-  <span class="santaimg" ><img src="santa.png" alt=""></span>
-  <div class="first_step">
-    <h1>введи имена людей, которые хотят дарить и получать подарки</h1>
-    <span class="giftimg"><img src="gift.png" alt=""><img src="gift.png" alt=""><img src="gift.png" alt=""></span>
-    <form class="input_info" onsubmit="return false;">
-      <div class="line"><input type="text"></div>
-      <div class="line"><input type="text"></div>
-      <div class="line"><a href="#" class="add_field">+</a><input type="text"></div>
-    </form>
-    <input id="sendNames" class="myButton" type="submit" value="Отправить">
-  </div>
-
-
-
-  <div class="second_step hidden">
-    <h3>выбери свое имя из списка, нажми на кнопку и узнай, кто получит от тебя подарок </h3>
-    <span class="giftimg"><img src="gift.png" alt=""><img src="gift.png" alt=""><img src="gift.png" alt=""></span>
-    <form id="allform" onsubmit="return false;">
-    <select id="myform" name="list1" required>
-    <option value="holder" disabled >----выбери имя----</option>
-   </select>
-   <br>
-   <input id="getAGift" class="myButton" type="submit" value="Узнать!">
-</form>
-  </div>
-</div>
-<script src="jquery-3.3.1.min.js"></script>
-<script src="script.js"></script>
+	<div class="myOnlyDiv">
+		<h1>Secret Santa, bitch</h1><span class="santaimg"><img alt="" src="santa.png"></span>
+		<div class="first_step">
+			<h3>введи имена людей, которые хотят дарить и получать подарки</h3><span class="giftimg"><img alt="" src="gift.png"><img alt="" src="gift.png"><img alt="" src="gift.png"></span>
+			<form class="input_info" onsubmit="return false;">
+				<div class="line">
+					<input type="text">
+				</div>
+				<div class="line">
+					<input type="text">
+				</div>
+				<div class="line">
+					<a class="add_field" href="#"><i class="fas fa-plus"></i></a><input type="text"><a class="add_field" href="#"><i class="fas fa-plus"></i></a>
+				</div>
+			</form><input class="myButton" id="sendNames" type="submit" value="Отправить">
+		</div>
+		<div class="second_step hidden">
+			<h3>выбери свое имя из списка, нажми на кнопку и узнай, кто получит от тебя подарок</h3><span class="giftimg"><img alt="" src="gift.png"><img alt="" src="gift.png"><img alt="" src="gift.png"></span>
+			<form id="allform" name="allform" onsubmit="return false;">
+				<select id="myform" name="list1" required="">
+					<option disabled value="holder">
+						----выбери имя----
+					</option>
+				</select><br>
+				<input class="myButton" id="getAGift" type="submit" value="Узнать!">
+			</form>
+		</div>
+	</div>
+	<script src="jquery-3.3.1.min.js">
+	</script>
+	<script src="script.js">
+	</script>
 </body>
 </html>

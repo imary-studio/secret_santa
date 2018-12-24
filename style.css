@@ -1,104 +1,89 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto|Thasadith');
-
 body {
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  background-image: url(bg.png);
-  position: relative;
-  text-align: center;
-  font-family: 'Roboto', sans-serif;
-
-
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	background-image: url(bg.png);
+	position: relative;
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
 }
-
-
-
-h1, h3 {
-  color: #fff;
+h1, h2, h3, h4, h5 {
+	color: #fff;
 }
-
 h3 {
-  font-family: 'Thasadith', sans-serif;
-
+	font-family: 'Thasadith', sans-serif;
 }
-
 input {
-  text-transform: capitalize;
+	text-transform: capitalize;
+	width: 250px;
 }
-
 a {
-  color: white;
-  text-decoration: none;
-  border: 1px white solid;
-  border-radius: 50%;
-  padding: 3px;
+	color: white;
+	text-decoration: none;
+	padding: 3px;
+	margin-left: 15px;
+	margin-right: 15px;
 }
-
-.santaimg > img {
-  width: 95px;
-  pointer-events: none;
+.santaimg>img {
+	width: 95px;
+	pointer-events: none;
 }
-
-.giftimg > img {
-  width: 50px;
-  padding: 10px;
-  margin-bottom: 20px;
-  pointer-events: none;
+.giftimg>img {
+	width: 50px;
+	padding: 10px;
+	margin-bottom: 20px;
+	pointer-events: none;
 }
-
 .myOnlyDiv {
-  background-color: rgba(178, 34, 34, 0.8);
-  position: absolute;
-  top: 50%;  /* position the top  edge of the element at the middle of the parent */
-  left: 50%; /* position the left edge of the element at the middle of the parent */
-  transform: translate(-50%, -50%);
-  padding: 35px;
+	background-color: rgba(178, 34, 34, 0.8);
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	padding: 35px;
 }
-
 .line {
-  position: relative;
-  margin-bottom: 7px;
+	position: relative;
+	margin-bottom: 10px;
 }
-
-.add_field {
-  position: absolute;
-  left: 25px;
-}
-
-
-.del_field {
-  position: absolute;
-  right: 25px;
-}
-
 .hidden {
-  display: none;
+	display: none;
 }
-
 #myform {
-  width: 150px;
-  padding: 7px;
-  margin-bottom: 20px;
-  border-radius: 50px;
-  outline: none;
+	width: 150px;
+	padding: 7px;
+	margin-bottom: 20px;
+	border-radius: 50px;
+	outline: none;
 }
-
 .myButton {
-  width: 110px;
-  padding: 10px;
-  border-radius: 50px;
-  background: #fff;
-  outline: none;
- }
-
- #getAGift:disabled {
-   background-color: rgba(128, 128, 128, 0.4)
- }
-
- @media only screen and (max-device-width:600px){
-   .myOnlyDiv {
-      position: relative;
-      margin: 0;
-   }
- }
+	width: 110px;
+	padding: 10px;
+	border-radius: 50px;
+	background: #fff;
+	outline: none;
+	margin-top: 20px;
+}
+#getAGift:disabled {
+	background-color: rgba(128, 128, 128, 0.4)
+}
+@media only screen and (max-device-width:600px) {
+	body {
+		//background-color: rgba(178, 34, 34, 0.8);
+	}
+	.myOnlyDiv {
+		background-color: rgba(178, 34, 34, 0.7);
+		position: relative;
+		margin: 0 auto;
+		padding: 25px;
+	}
+	input {
+		width: 180px;
+	}
+}
+@media only screen and (max-device-width:960px) {
+	input {
+		width: 180px;
+	}
+}
