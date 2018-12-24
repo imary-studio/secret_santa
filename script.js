@@ -38,7 +38,7 @@ $('#sendNames').click(function namesFromInput() { // выводит введен
 	$('.first_step').addClass('hidden');
 	$('.second_step').removeClass('hidden');
 	for (var i = 0; i < namesArray.length; i++) { // добавляет имена в список
-		$("#myform").append('<option value="' + i + '">' + namesArray[i] + '</option>');
+		$("#myform").append('<option value="' + i + '">' + capitalize(namesArray[i]) + '</option>');
 	};
 	perebor();
 
